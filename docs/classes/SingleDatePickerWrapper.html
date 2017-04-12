@@ -342,7 +342,7 @@
             
                             <tr>
                                 <td class="col-md-4">
-            <code>onFocusChange(undefined: { focused: any; })</code>
+            <code>onFocusChange(undefined: any)</code>
                                 </td>
                             </tr>
             
@@ -397,7 +397,7 @@
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description">
-                                            <b>Returns: </b>    <code>void</code>
+                                            <b>Returns: </b>    <code>any</code>
             
                                         </div>
                                 </td>
@@ -433,13 +433,13 @@ export class SingleDatePickerWrapper extends React.Component&lt;any, any&gt; {
     this.ngComponent.updateReactDate &#x3D; this.ngComponent.updateReactDate.bind(this);
   }
 
-  updateReactDateFromNg(date: any) {
+  updateReactDateFromNg(date: any): void {
     // Update date
-    let newDate &#x3D; date ? moment(date) : null;
+    let newDate: any &#x3D; date ? moment(date) : null;
     this.onDateChange(newDate);
   }
 
-  onDateChange(date: any) {
+  onDateChange(date: any): void {
     // Update this react component state
     this.setState({ date });
 
@@ -447,7 +447,7 @@ export class SingleDatePickerWrapper extends React.Component&lt;any, any&gt; {
     this.ngComponent.value &#x3D; date ? date.toDate() : null;
   }
 
-  onFocusChange({ focused }) {
+  onFocusChange({ focused }: any): void {
     this.setState({ focused });
   }
 
@@ -458,7 +458,7 @@ export class SingleDatePickerWrapper extends React.Component&lt;any, any&gt; {
     };
   }
 
-  render() {
+  render(): any {
     let conf: any &#x3D; {
       // Required
       date: this.state.date,
