@@ -30,6 +30,11 @@ Install through npm:
 npm install --save angular-react-dates
 ```
 
+Include react-dates styles somewhere globally in your app:
+```
+import 'react-dates/lib/css/_datepicker.css';
+```
+
 Then include in your apps module:
 
 ```typescript
