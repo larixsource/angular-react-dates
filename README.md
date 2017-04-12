@@ -8,6 +8,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/larixsource/angular-react-dates/master/LICENSE)
 
 ## Demo
+Check the demo at
 https://larixsource.github.io/angular-react-dates/
 
 ## Table of contents
@@ -48,7 +49,7 @@ Finally use in one of your apps components:
 import { Component } from '@angular/core';
 
 @Component({
-  template: '<hello-world></hello-world>'
+  template: '<angular-date-range-picker [(ngModel)]="selectedDateRange"></angular-date-range-picker>'
 })
 export class MyComponent {}
 ```
