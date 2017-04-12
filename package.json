@@ -44,7 +44,8 @@
     "react": "15.4.2",
     "react-addons-shallow-compare": "15.4.2",
     "react-dates": "9.0.0",
-    "react-dom": "15.4.2"
+    "react-dom": "15.4.2",
+    "moment": "^2.15.1"
   },
   "devDependencies": {
     "@angular/common": "^4.0.0",
@@ -86,7 +87,6 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
-    "moment": "2.15.1",
     "phantomjs-prebuilt": "^2.1.7",
     "rxjs": "^5.0.1",
     "sinon": "^2.0.0",
