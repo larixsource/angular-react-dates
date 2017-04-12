@@ -254,7 +254,8 @@
 <p>Angular wrapper component for Airbnb react-date.</p>
 <h2 id="installation">Installation</h2>
 <p>Install through npm:</p>
-<pre><code class="hljs undefined">npm install --save angular-react-dates</code></pre><p>Then include in your apps module:</p>
+<pre><code class="hljs undefined">npm install --save angular-react-dates</code></pre><p>Include react-dates styles somewhere globally in your app:</p>
+<pre><code class="hljs undefined">import 'react-dates/lib/css/_datepicker.css';</code></pre><p>Then include in your apps module:</p>
 <pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { Component, NgModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;<br><span class="hljs-keyword">import</span> { AngularReactDatesModule } <span class="hljs-keyword">from</span> <span class="hljs-string">'angular-react-dates'</span>;<br><br><span class="hljs-meta">@NgModule</span>({<br>  imports: [<br>    AngularReactDatesModule.forRoot()<br>  ]<br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyModule {}</code></pre><p>Finally use in one of your apps components:</p>
 <pre><code class="hljs typescript"><span class="hljs-keyword">import</span> { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;<br><br><span class="hljs-meta">@Component</span>({<br>  template: <span class="hljs-string">'&lt;angular-date-range-picker [(ngModel)]="selectedDateRange"&gt;&lt;/angular-date-range-picker&gt;'</span><br>})<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> MyComponent {}</code></pre><p>You may also find it useful to view the <a href="https://github.com/larixsource/angular-react-dates/blob/master/demo/demo.component.ts">demo source</a>.</p>
 <h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
