@@ -21,7 +21,7 @@ https://larixsource.github.io/angular-react-dates/
 
 ## About
 
-Angular wrapper component for Airbnb react-date.
+Angular wrapper component for Airbnb react-dates.
 
 ## Installation
 

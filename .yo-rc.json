@@ -7,7 +7,7 @@
     "ngModuleName": "AngularReactDatesModule",
     "selectorPrefix": "lx",
     "projectTitle": "angular-react-dates",
-    "projectDescription": "Angular wrapper component for Airbnb react-date.",
+    "projectDescription": "Angular wrapper component for Airbnb react-dates.",
     "authorName": "Larix"
   }
 }
