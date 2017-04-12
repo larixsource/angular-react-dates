@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, forwardRef, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, forwardRef, Input } from '@angular/core';
 import { SingleDatePickerWrapper } from './single-date-picker-wrapper';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import * as React from 'react';
@@ -15,7 +15,7 @@ import * as ReactDOM from 'react-dom';
     }
   ]
 })
-export class SingleDatePickerComponent implements OnInit, ControlValueAccessor {
+export class SingleDatePickerComponent implements OnInit, ControlValueAccessor, AfterViewInit {
 
   // Element reference
   @ViewChild('singleDatePicker')
@@ -27,13 +27,7 @@ export class SingleDatePickerComponent implements OnInit, ControlValueAccessor {
   // Date value
   private date: any;
 
-  //Placeholders for callbacks
-  private onTouchedCallback = () => {};
-  private onChangeCallback = (_: any) => {};
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     // Initialize props if not specified
     if (!this.props) {
       this.props = {};
@@ -44,8 +38,8 @@ export class SingleDatePickerComponent implements OnInit, ControlValueAccessor {
     this.props.date = this.date;
   }
 
-  ngAfterViewInit() {
-    let container = this.singleDatePicker.nativeElement;
+  ngAfterViewInit(): void {
+    let container: any = this.singleDatePicker.nativeElement;
     ReactDOM.render(
       React.createElement(SingleDatePickerWrapper, this.props, null),
       container
@@ -63,12 +57,12 @@ export class SingleDatePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  onBlur() {
+  onBlur(): void {
     this.onTouchedCallback();
   }
 
   writeValue(value: any): void {
-    if (value != this.date) {
+    if (value !== this.date) {
       // Update this angular component
       this.date = value;
 
@@ -77,16 +71,24 @@ export class SingleDatePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  updateReactDate(date) {
+  updateReactDate(date: any): void {
     // Initially empty. This function is replaced when react component is created with its context.
   };
 
-  registerOnChange(fn: any) {
+  registerOnChange(fn: any): void {
     this.onChangeCallback = fn;
   }
 
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: any): void {
     this.onTouchedCallback = fn;
+  }
+
+  onTouchedCallback(): void {
+    //Placeholders for callback
+  }
+
+  onChangeCallback(_: any): void {
+    //Placeholders for callback
   }
 
 }

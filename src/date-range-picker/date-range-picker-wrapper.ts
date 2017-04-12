@@ -22,21 +22,21 @@ export class DateRangePickerWrapper extends React.Component<any, any> {
     this.ngComponent.updateReactDateRange = this.ngComponent.updateReactDateRange.bind(this);
   }
 
-  updateReactDateRangeFromNg(dateRange: any) {
+  updateReactDateRangeFromNg(dateRange: any): void {
     // Update date range
     if (dateRange) {
-      let startDate = dateRange.start ? moment(dateRange.start) : null;
-      let endDate = dateRange.end ? moment(dateRange.end) : null;
+      let startDate: any = dateRange.start ? moment(dateRange.start) : null;
+      let endDate: any = dateRange.end ? moment(dateRange.end) : null;
       this.onDatesChange({ startDate, endDate });
     }
   }
 
-  onDatesChange({ startDate, endDate }) {
+  onDatesChange({ startDate, endDate }: any): void {
     // Update this react component state
     this.setState({ startDate, endDate });
 
     // Update angular component container state
-    let ngDateRange;
+    let ngDateRange: any;
     if (startDate || endDate) {
       ngDateRange = {
         start: startDate ? startDate.toDate() : null,
@@ -46,14 +46,14 @@ export class DateRangePickerWrapper extends React.Component<any, any> {
     this.ngComponent.value = ngDateRange;
   }
 
-  onFocusChange(focusedInput) {
+  onFocusChange(focusedInput: any): void {
     this.setState({ focusedInput });
   }
 
   createState(): any {
     // Get date range from props
-    let startDate = this.props.dateRange ? this.props.dateRange.start : null;
-    let endDate = this.props.dateRange ? this.props.dateRange.end : null;
+    let startDate: any = this.props.dateRange ? this.props.dateRange.start : null;
+    let endDate: any = this.props.dateRange ? this.props.dateRange.end : null;
 
     return {
       startDate: startDate ? moment(startDate) : null,
@@ -62,7 +62,7 @@ export class DateRangePickerWrapper extends React.Component<any, any> {
     };
   }
 
-  render() {
+  render(): any {
     let conf: any = {
       // Required
       startDate: this.state.startDate,

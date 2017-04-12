@@ -1,6 +1,6 @@
 {
   "name": "angular-react-dates",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Angular wrapper component for Airbnb react-date.",
   "main": "./bundles/angular-react-dates.umd.js",
   "module": "./index.js",
@@ -40,6 +40,12 @@
     "url": "https://github.com/larixsource/angular-react-dates/issues"
   },
   "homepage": "https://github.com/larixsource/angular-react-dates#readme",
+  "dependencies": {
+    "react": "15.4.2",
+    "react-addons-shallow-compare": "15.4.2",
+    "react-dates": "9.0.0",
+    "react-dom": "15.4.2"
+  },
   "devDependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -82,10 +88,6 @@
     "karma-webpack": "^2.0.1",
     "moment": "2.15.1",
     "phantomjs-prebuilt": "^2.1.7",
-    "react": "15.4.2",
-    "react-addons-shallow-compare": "15.4.2",
-    "react-dates": "9.0.0",
-    "react-dom": "15.4.2",
     "rxjs": "^5.0.1",
     "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0",

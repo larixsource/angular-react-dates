@@ -15,9 +15,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var DateRangePickerComponent = (function () {
     function DateRangePickerComponent() {
-        //Placeholders for callbacks
-        this.onTouchedCallback = function () { };
-        this.onChangeCallback = function (_) { };
     }
     DateRangePickerComponent.prototype.ngOnInit = function () {
         // Initialize props if not specified
@@ -50,7 +47,7 @@ var DateRangePickerComponent = (function () {
         this.onTouchedCallback();
     };
     DateRangePickerComponent.prototype.writeValue = function (rangeModel) {
-        if (rangeModel != this.dateRange) {
+        if (rangeModel !== this.dateRange) {
             // Update this angular component
             this.dateRange = rangeModel;
             // Update react component value
@@ -66,6 +63,12 @@ var DateRangePickerComponent = (function () {
     };
     DateRangePickerComponent.prototype.registerOnTouched = function (fn) {
         this.onTouchedCallback = fn;
+    };
+    DateRangePickerComponent.prototype.onTouchedCallback = function () {
+        //Placeholders for callback
+    };
+    DateRangePickerComponent.prototype.onChangeCallback = function (_) {
+        //Placeholders for callback
     };
     __decorate([
         core_1.ViewChild('dateRangePicker'), 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, forwardRef, Input } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, forwardRef, Input } from '@angular/core';
 import { DateRangePickerWrapper } from './date-range-picker-wrapper';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import * as React from 'react';
@@ -15,7 +15,7 @@ import * as ReactDOM from 'react-dom';
     }
   ]
 })
-export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
+export class DateRangePickerComponent implements OnInit, ControlValueAccessor, AfterViewInit {
 
   // Element reference
   @ViewChild('dateRangePicker')
@@ -27,13 +27,7 @@ export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
   // Dates values
   private dateRange: any;
 
-  //Placeholders for callbacks
-  private onTouchedCallback = () => {};
-  private onChangeCallback = (_: any) => {};
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
     // Initialize props if not specified
     if (!this.props) {
       this.props = {};
@@ -44,8 +38,8 @@ export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
     this.props.dateRange = this.dateRange;
   }
 
-  ngAfterViewInit() {
-    let container = this.dateRangePicker.nativeElement;
+  ngAfterViewInit(): void {
+    let container: any = this.dateRangePicker.nativeElement;
     ReactDOM.render(
       React.createElement(DateRangePickerWrapper, this.props, null),
       container
@@ -63,12 +57,12 @@ export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  onBlur() {
+  onBlur(): void {
     this.onTouchedCallback();
   }
 
   writeValue(rangeModel: any): void {
-    if (rangeModel != this.dateRange) {
+    if (rangeModel !== this.dateRange) {
       // Update this angular component
       this.dateRange = rangeModel;
 
@@ -77,16 +71,24 @@ export class DateRangePickerComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  updateReactDateRange(dateRange) {
+  updateReactDateRange(dateRange: any): void {
     // Initially empty. This function is replaced when react component is created with its context.
   };
 
-  registerOnChange(fn: any) {
+  registerOnChange(fn: any): void {
     this.onChangeCallback = fn;
   }
 
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: any): void {
     this.onTouchedCallback = fn;
+  }
+
+  onTouchedCallback(): void {
+    //Placeholders for callback
+  }
+
+  onChangeCallback(_: any): void {
+    //Placeholders for callback
   }
 
 }
