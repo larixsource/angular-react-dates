@@ -1,0 +1,117 @@
+import * as React from 'react';
+import { DateRangePicker, DateRangePickerInputController } from 'react-dates';
+import { DateRangePickerComponent } from './date-range-picker.component';
+import * as moment from 'moment';
+
+export class DateRangePickerWrapper extends React.Component<any, any> {
+
+  private ngComponent: DateRangePickerComponent;
+
+  constructor(props: any) {
+    super(props);
+
+    // React component state
+    this.state = this.createState();
+
+    // Bindings to angular context
+    this.ngComponent = props.ngComponent;
+    this.ngComponent.updateReactDateRange = this.updateReactDateRangeFromNg;
+
+    this.onDatesChange = this.onDatesChange.bind(this);
+    this.onFocusChange = this.onFocusChange.bind(this);
+    this.ngComponent.updateReactDateRange = this.ngComponent.updateReactDateRange.bind(this);
+  }
+
+  updateReactDateRangeFromNg(dateRange: any) {
+    // Update date range
+    if (dateRange) {
+      let startDate = dateRange.start ? moment(dateRange.start) : null;
+      let endDate = dateRange.end ? moment(dateRange.end) : null;
+      this.onDatesChange({ startDate, endDate });
+    }
+  }
+
+  onDatesChange({ startDate, endDate }) {
+    // Update this react component state
+    this.setState({ startDate, endDate });
+
+    // Update angular component container state
+    let ngDateRange;
+    if (startDate || endDate) {
+      ngDateRange = {
+        start: startDate ? startDate.toDate() : null,
+        end: endDate ? endDate.toDate() : null
+      };
+    }
+    this.ngComponent.value = ngDateRange;
+  }
+
+  onFocusChange(focusedInput) {
+    this.setState({ focusedInput });
+  }
+
+  createState(): any {
+    // Get date range from props
+    let startDate = this.props.dateRange ? this.props.dateRange.start : null;
+    let endDate = this.props.dateRange ? this.props.dateRange.end : null;
+
+    return {
+      startDate: startDate ? moment(startDate) : null,
+      endDate: endDate ? moment(endDate) : null,
+      focusedInput: this.props.focusedInput
+    };
+  }
+
+  render() {
+    let conf: any = {
+      // Required
+      startDate: this.state.startDate,
+      endDate: this.state.endDate,
+      onDatesChange: this.onDatesChange,
+      focusedInput: this.state.focusedInput,
+      onFocusChange: this.onFocusChange,
+
+      // Optional
+      startDateId: this.props.startDateId,
+      startDatePlaceholderText: this.props.startDatePlaceholderText,
+      endDateId: this.props.endDateId,
+      endDatePlaceholderText: this.props.endDatePlaceholderText,
+      disabled: this.props.disabled,
+      required: this.props.required,
+      screenReaderInputMessage: this.props.screenReaderInputMessage,
+      showClearDates: this.props.showClearDates,
+      showDefaultInputIcon: this.props.showDefaultInputIcon,
+      customInputIcon: this.props.customInputIcon,
+      customArrowIcon: this.props.customArrowIcon,
+      customCloseIcon: this.props.customCloseIcon,
+
+      orientation: this.props.orientation,
+      anchorDirection: this.props.anchorDirection,
+      horizontalMargin: this.props.horizontalMargin,
+      withPortal: this.props.withPortal,
+      withFullScreenPortal: this.props.withFullScreenPortal,
+      initialVisibleMonth: this.props.initialVisibleMonth,
+      numberOfMonths: this.props.numberOfMonths,
+      keepOpenOnDateSelect: this.props.keepOpenOnDateSelect,
+      reopenPickerOnClearDates: this.props.reopenPickerOnClearDates,
+      renderCalendarInfo: this.props.renderCalendarInfo,
+
+      navPrev: this.props.navPrev,
+      navNext: this.props.navNext,
+      onPrevMonthClick: this.props.onPrevMonthClick,
+      onNextMonthClick: this.props.onNextMonthClick,
+
+      renderDay: this.props.renderDay,
+      minimumNights: this.props.minimumNights,
+      enableOutsideDays: this.props.enableOutsideDays,
+      isDayBlocked: this.props.isDayBlocked,
+      isOutsideRange: this.props.isOutsideRange,
+      isDayHighlighted: this.props.isDayHighlighted,
+
+      displayFormat: this.props.displayFormat,
+      monthFormat: this.props.monthFormat,
+      phrases: this.props.phrases
+    };
+    return React.createElement(DateRangePicker, conf);
+  }
+}

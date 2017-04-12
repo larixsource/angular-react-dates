@@ -1,0 +1,13 @@
+{
+  "generator-angular-library": {
+    "githubUsername": "larixsource",
+    "githubRepoName": "angular-react-dates",
+    "npmModuleName": "angular-react-dates",
+    "moduleGlobal": "angularReactDates",
+    "ngModuleName": "AngularReactDatesModule",
+    "selectorPrefix": "lx",
+    "projectTitle": "angular-react-dates",
+    "projectDescription": "Angular wrapper component for Airbnb react-date.",
+    "authorName": "Larix"
+  }
+}
