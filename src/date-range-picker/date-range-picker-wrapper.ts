@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DateRangePicker, DateRangePickerInputController } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 import { DateRangePickerComponent } from './date-range-picker.component';
 import * as moment from 'moment';
 
