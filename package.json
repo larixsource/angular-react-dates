@@ -1,6 +1,6 @@
 {
   "name": "angular-react-dates",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Angular wrapper component for Airbnb react-date.",
   "main": "./bundles/angular-react-dates.umd.js",
   "module": "./index.js",
