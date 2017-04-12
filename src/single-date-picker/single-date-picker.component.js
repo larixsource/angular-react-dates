@@ -15,9 +15,6 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var SingleDatePickerComponent = (function () {
     function SingleDatePickerComponent() {
-        //Placeholders for callbacks
-        this.onTouchedCallback = function () { };
-        this.onChangeCallback = function (_) { };
     }
     SingleDatePickerComponent.prototype.ngOnInit = function () {
         // Initialize props if not specified
@@ -50,7 +47,7 @@ var SingleDatePickerComponent = (function () {
         this.onTouchedCallback();
     };
     SingleDatePickerComponent.prototype.writeValue = function (value) {
-        if (value != this.date) {
+        if (value !== this.date) {
             // Update this angular component
             this.date = value;
             // Update react component value
@@ -66,6 +63,12 @@ var SingleDatePickerComponent = (function () {
     };
     SingleDatePickerComponent.prototype.registerOnTouched = function (fn) {
         this.onTouchedCallback = fn;
+    };
+    SingleDatePickerComponent.prototype.onTouchedCallback = function () {
+        //Placeholders for callback
+    };
+    SingleDatePickerComponent.prototype.onChangeCallback = function (_) {
+        //Placeholders for callback
     };
     __decorate([
         core_1.ViewChild('singleDatePicker'), 

@@ -22,13 +22,13 @@ export class SingleDatePickerWrapper extends React.Component<any, any> {
     this.ngComponent.updateReactDate = this.ngComponent.updateReactDate.bind(this);
   }
 
-  updateReactDateFromNg(date: any) {
+  updateReactDateFromNg(date: any): void {
     // Update date
-    let newDate = date ? moment(date) : null;
+    let newDate: any = date ? moment(date) : null;
     this.onDateChange(newDate);
   }
 
-  onDateChange(date: any) {
+  onDateChange(date: any): void {
     // Update this react component state
     this.setState({ date });
 
@@ -36,7 +36,7 @@ export class SingleDatePickerWrapper extends React.Component<any, any> {
     this.ngComponent.value = date ? date.toDate() : null;
   }
 
-  onFocusChange({ focused }) {
+  onFocusChange({ focused }: any): void {
     this.setState({ focused });
   }
 
@@ -47,7 +47,7 @@ export class SingleDatePickerWrapper extends React.Component<any, any> {
     };
   }
 
-  render() {
+  render(): any {
     let conf: any = {
       // Required
       date: this.state.date,
