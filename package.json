@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/larixsource/angular-react-dates#readme",
   "dependencies": {
+    "moment": "2.15.1",
     "react": "15.4.2",
     "react-addons-shallow-compare": "15.4.2",
-    "react-dates": "9.0.0",
-    "react-dom": "15.4.2",
-    "moment": "^2.15.1"
+    "react-dates": "12.4.0",
+    "react-dom": "15.4.2"
   },
   "devDependencies": {
     "@angular/common": "^4.0.0",
