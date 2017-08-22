@@ -27,6 +27,8 @@ import { Component } from '@angular/core';
         <div class="col-sm-6">
           <h4>Markup</h4>
           <code>&lt;angular-date-range-picker [(ngModel)]="selectedDateRangeAdv" [props]="dateRangePickerProps" (ngModelChange)="changeDateRangeAdv($event)"&gt;&lt;/angular-date-range-picker&gt;</code>
+          <h4>Props value</h4>
+          <pre>{{propsDRP | json}}</pre>
           <h4>Model value</h4>
           <pre>{{selectedDateRangeAdv | json}}</pre>
         </div>
@@ -55,6 +57,8 @@ import { Component } from '@angular/core';
         <div class="col-sm-6">
           <h4>Markup</h4>
           <code>&lt;angular-single-date-picker [(ngModel)]="selectedDateAdv" [props]="singleDatePickerProps" (ngModelChange)="changeDateAdv($event)"&gt;&lt;/angular-single-date-picker&gt;</code>
+          <h4>Props value</h4>
+          <pre>{{propsSDP | json}}</pre>
           <h4>Model value</h4>
           <pre>{{selectedDateAdv | json}}</pre>
         </div>
@@ -64,30 +68,36 @@ import { Component } from '@angular/core';
 })
 export class DemoComponent {
   // Date range picker
+  propsDRP: any;
   selectedDateRange: any;
   selectedDateRangeAdv: any;
   dateRangePickerProps: any;
 
   // Single date picker
+  propsSDP: any;
   selectedDate: Date;
   selectedDateAdv: Date;
   singleDatePickerProps: any;
 
   constructor() {
     // Date range picker conf
-    this.dateRangePickerProps = {
+    this.propsDRP = {
       startDatePlaceholderText: 'Desde',
       endDatePlaceholderText: 'Hasta',
       showClearDates: true,
-      withPortal: true
+      withPortal: true,
+      daySize: 30
     };
+    this.dateRangePickerProps = Object.assign({}, this.propsDRP);
 
     // Single date picker conf
-    this.singleDatePickerProps = {
+    this.propsSDP = {
       placeholder: 'Fecha',
       showClearDate: true,
-      withPortal: true
+      withPortal: true,
+      daySize: 30
     };
+    this.singleDatePickerProps = Object.assign({}, this.propsSDP);
   }
 
   changeDateRangeAdv(ev) {
