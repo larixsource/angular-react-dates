@@ -43,7 +43,7 @@
   "dependencies": {
     "moment": "2.15.1",
     "react": "15.4.2",
-    "react-addons-shallow-compare": "15.4.2",
+    "react-addons-shallow-compare": "15.6.2",
     "react-dates": "12.4.0",
     "react-dom": "15.4.2"
   },
